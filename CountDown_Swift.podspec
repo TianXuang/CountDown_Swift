@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CountDown_Swift"
-  s.version      = "1.0"
+  s.version      = "1.0.1"
   s.summary      = "一款简单的swift倒计时框架"
 s.swift_version = '4.3'
   # This description is used to generate tags and improve search results.
@@ -81,7 +81,7 @@ s.swift_version = '4.3'
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/TianXuang/CountDown_Swift.git", :tag => "1.0" }
+  s.source       = { :git => "https://github.com/TianXuang/CountDown_Swift.git", :tag => "1.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
