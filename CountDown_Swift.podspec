@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CountDown_Swift"
-  s.version      = "0.0.1"
+  s.version      = "1.0"
   s.summary      = "一款简单的swift倒计时框架"
-
+s.swift_version = '4.3'
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
@@ -66,7 +66,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "10.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -92,8 +92,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "CountDown_Swift", "CountDown_Swift/*.{swift}"
-  s.exclude_files = "CountDown_Swift"
+s.source_files  = "CountDown_Swift/openClass/*.{swift}"
+  s.exclude_files = "CountDown_Swift/CountDown_Swift"
 
   # s.public_header_files = "Classes/**/*.h"
 

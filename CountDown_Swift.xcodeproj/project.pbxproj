@@ -99,9 +99,9 @@
 		712CA26A22C90D8B00508087 /* CountDown_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				712CA29B22CA564C00508087 /* openClass */,
 				712CA26B22C90D8B00508087 /* AppDelegate.swift */,
 				712CA26D22C90D8B00508087 /* ViewController.swift */,
-				712CA29922CA50C900508087 /* CountDown.swift */,
 				712CA26F22C90D8B00508087 /* Main.storyboard */,
 				712CA27222C90D8C00508087 /* Assets.xcassets */,
 				712CA27422C90D8C00508087 /* LaunchScreen.storyboard */,
@@ -126,6 +126,14 @@
 				712CA28D22C90D8D00508087 /* Info.plist */,
 			);
 			path = CountDown_SwiftUITests;
+			sourceTree = "<group>";
+		};
+		712CA29B22CA564C00508087 /* openClass */ = {
+			isa = PBXGroup;
+			children = (
+				712CA29922CA50C900508087 /* CountDown.swift */,
+			);
+			path = openClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
