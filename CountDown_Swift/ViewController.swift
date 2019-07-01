@@ -12,14 +12,13 @@ class ViewController: UIViewController {
     var count:CountDown? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+     
         let count = CountDown.init();
         //使用时间来倒计时
 //      count.countDownWithStratDate(startDate: NSDate.init(), endDate: NSDate.init(timeIntervalSinceNow: 2000)) { (day, hours, mine, sec) in
 
 //            print("\(day)==\(hours)==\(mine)===\(sec)");
 //        }
-        
         
         
         var cc = 0;
