@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountDown: NSObject {
+open class CountDown: NSObject {
     var timer:DispatchSourceTimer?
     var dateFormatter:DateFormatter?
     override init() {
