@@ -45,7 +45,12 @@ class CountDown: NSObject {
                 }
             })
             //启动定时器
+        if #available(iOS 10.0, *) {
             timer?.activate()
+        } else {
+            // Fallback on earlier versions
+            timer?.resume();
+        }
     }
     
     /**
@@ -75,7 +80,12 @@ class CountDown: NSObject {
             }
         })
         //启动定时器
-        timer?.activate()
+        if #available(iOS 10.0, *) {
+            timer?.activate()
+        } else {
+            // Fallback on earlier versions
+            timer?.resume();
+        }
     }
     
     /**使用定时器按设置的固定秒回调*/
@@ -86,7 +96,12 @@ class CountDown: NSObject {
             block();
         })
         //启动定时器
-        timer?.activate()
+        if #available(iOS 10.0, *) {
+            timer?.activate()
+        } else {
+            timer?.resume();
+            // Fallback on earlier versions
+        }
     }
     
     public func destoryTimer(){

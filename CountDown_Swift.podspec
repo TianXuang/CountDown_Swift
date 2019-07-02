@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CountDown_Swift"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "一款简单的swift倒计时框架"
-s.swift_version = '4.3'
+  s.swift_version = '4.3'
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
@@ -65,8 +65,8 @@ s.swift_version = '4.3'
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # s.platform     = :ios
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -81,7 +81,7 @@ s.swift_version = '4.3'
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/TianXuang/CountDown_Swift.git", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/TianXuang/CountDown_Swift.git", :tag => s.version}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
