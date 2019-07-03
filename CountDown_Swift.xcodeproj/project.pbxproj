@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71099B8122CCF2C30083F93A /* TTNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71099B8022CCF2C30083F93A /* TTNavigationView.swift */; };
 		712CA26C22C90D8B00508087 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712CA26B22C90D8B00508087 /* AppDelegate.swift */; };
 		712CA26E22C90D8B00508087 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712CA26D22C90D8B00508087 /* ViewController.swift */; };
 		712CA27122C90D8B00508087 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712CA26F22C90D8B00508087 /* Main.storyboard */; };
@@ -14,7 +15,8 @@
 		712CA27622C90D8C00508087 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712CA27422C90D8C00508087 /* LaunchScreen.storyboard */; };
 		712CA28122C90D8C00508087 /* CountDown_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712CA28022C90D8C00508087 /* CountDown_SwiftTests.swift */; };
 		712CA28C22C90D8D00508087 /* CountDown_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712CA28B22C90D8D00508087 /* CountDown_SwiftUITests.swift */; };
-		712CA29A22CA50C900508087 /* CountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712CA29922CA50C900508087 /* CountDown.swift */; };
+		712CA29A22CA50C900508087 /* TTCountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712CA29922CA50C900508087 /* TTCountDown.swift */; };
+		9BB63C97D3F7B616C020FB08 /* libPods-CountDown_Swift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A71B88E9D1E70ED56D61F3 /* libPods-CountDown_Swift.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08A71B88E9D1E70ED56D61F3 /* libPods-CountDown_Swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CountDown_Swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4847341351238401E3F4F902 /* Pods-CountDown_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountDown_Swift.debug.xcconfig"; path = "Target Support Files/Pods-CountDown_Swift/Pods-CountDown_Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		71099B8022CCF2C30083F93A /* TTNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTNavigationView.swift; sourceTree = "<group>"; };
 		712CA26822C90D8B00508087 /* CountDown_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountDown_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712CA26B22C90D8B00508087 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		712CA26D22C90D8B00508087 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +53,8 @@
 		712CA28722C90D8D00508087 /* CountDown_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountDown_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		712CA28B22C90D8D00508087 /* CountDown_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDown_SwiftUITests.swift; sourceTree = "<group>"; };
 		712CA28D22C90D8D00508087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		712CA29922CA50C900508087 /* CountDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDown.swift; sourceTree = "<group>"; };
+		712CA29922CA50C900508087 /* TTCountDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTCountDown.swift; sourceTree = "<group>"; };
+		D1E75222F385EACEF37A33EE /* Pods-CountDown_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountDown_Swift.release.xcconfig"; path = "Target Support Files/Pods-CountDown_Swift/Pods-CountDown_Swift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB63C97D3F7B616C020FB08 /* libPods-CountDown_Swift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +83,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26790B2AA49719AAB5D34FFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08A71B88E9D1E70ED56D61F3 /* libPods-CountDown_Swift.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C0B952B70647C5484E8F602 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4847341351238401E3F4F902 /* Pods-CountDown_Swift.debug.xcconfig */,
+				D1E75222F385EACEF37A33EE /* Pods-CountDown_Swift.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		712CA25F22C90D8B00508087 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				712CA27F22C90D8C00508087 /* CountDown_SwiftTests */,
 				712CA28A22C90D8D00508087 /* CountDown_SwiftUITests */,
 				712CA26922C90D8B00508087 /* Products */,
+				4C0B952B70647C5484E8F602 /* Pods */,
+				26790B2AA49719AAB5D34FFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,7 +158,8 @@
 		712CA29B22CA564C00508087 /* openClass */ = {
 			isa = PBXGroup;
 			children = (
-				712CA29922CA50C900508087 /* CountDown.swift */,
+				712CA29922CA50C900508087 /* TTCountDown.swift */,
+				71099B8022CCF2C30083F93A /* TTNavigationView.swift */,
 			);
 			path = openClass;
 			sourceTree = "<group>";
@@ -143,6 +171,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 712CA29022C90D8D00508087 /* Build configuration list for PBXNativeTarget "CountDown_Swift" */;
 			buildPhases = (
+				8A32BE843F9B3B721C293982 /* [CP] Check Pods Manifest.lock */,
 				712CA26422C90D8B00508087 /* Sources */,
 				712CA26522C90D8B00508087 /* Frameworks */,
 				712CA26622C90D8B00508087 /* Resources */,
@@ -262,6 +291,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8A32BE843F9B3B721C293982 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CountDown_Swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		712CA26422C90D8B00508087 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -269,7 +323,8 @@
 			files = (
 				712CA26E22C90D8B00508087 /* ViewController.swift in Sources */,
 				712CA26C22C90D8B00508087 /* AppDelegate.swift in Sources */,
-				712CA29A22CA50C900508087 /* CountDown.swift in Sources */,
+				71099B8122CCF2C30083F93A /* TTNavigationView.swift in Sources */,
+				712CA29A22CA50C900508087 /* TTCountDown.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,12 +497,13 @@
 		};
 		712CA29122C90D8D00508087 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4847341351238401E3F4F902 /* Pods-CountDown_Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SE87NC5CD4;
 				INFOPLIST_FILE = CountDown_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,12 +517,13 @@
 		};
 		712CA29222C90D8D00508087 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1E75222F385EACEF37A33EE /* Pods-CountDown_Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SE87NC5CD4;
 				INFOPLIST_FILE = CountDown_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

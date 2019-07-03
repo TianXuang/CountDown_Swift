@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CountDown_Swift"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "一款简单的swift倒计时框架"
   s.swift_version = '4.3'
   # This description is used to generate tags and improve search results.
@@ -134,6 +134,5 @@ s.source_files  = "CountDown_Swift/openClass/*.{swift}"
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
-
+   s.dependency "SnapKit", "~> 4.0.0"
 end

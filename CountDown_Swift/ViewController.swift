@@ -9,11 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var count:CountDown? = nil
+    
+    convenience init(name:String) {
+        self.init()
+    }
+    
+    var count:TTCountDown? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        let count = CountDown.init();
+        let count = TTCountDown.init();
         //使用时间来倒计时
 //      count.countDownWithStratDate(startDate: NSDate.init(), endDate: NSDate.init(timeIntervalSinceNow: 2000)) { (day, hours, mine, sec) in
 
@@ -32,8 +37,16 @@ class ViewController: UIViewController {
             print("111");
         }
         self.count = count;
+        
+        
+        let ttnav = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftImage: "",title: "首页");
+        ttnav.backgroundColor = UIColor.red
+        self.view.addSubview(ttnav);
+        
+        
+        
+        
     }
-
 
 }
 

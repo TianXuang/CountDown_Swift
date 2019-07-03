@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class CountDown: NSObject {
+open class TTCountDown: NSObject {
     var timer:DispatchSourceTimer?
     var dateFormatter:DateFormatter?
     override init() {
@@ -21,7 +21,7 @@ open class CountDown: NSObject {
     /**
      用NSDate进行倒计时
      */
-    open func countDownWithStratDate(startDate:NSDate,endDate:NSDate,block:@escaping (_ day:NSInteger,_ hour:NSInteger,_ minute:NSInteger,_ second:NSInteger)->Void)->Void{
+    open func countDownWithStratDate(startDate:NSDate,endDate:NSDate,block:@escaping (_ day:String,_ hour:String,_ minute:String,_ second:String)->Void)->Void{
         var timeInval = endDate.timeIntervalSince(startDate as Date);
         
             timer = DispatchSource.makeTimerSource();
@@ -30,7 +30,7 @@ open class CountDown: NSObject {
                 if timeInval<0{
                     self.timer?.cancel();
                     DispatchQueue.main.async {
-                       block(0,0,0,0);
+                       block("0","0","0","0");
                     }
                 }else{
                     timeInval = timeInval-1;
@@ -40,7 +40,28 @@ open class CountDown: NSObject {
                     let minute = (inv-day*24*3600-hours*3600)/60;
                     let second = Int(inv)-Int(day*24*3600)-Int(hours*3600)-Int(minute*60)
                     DispatchQueue.main.async {
-                    block(Int(day),Int(hours),NSInteger(minute),NSInteger(second));
+                        if day==0&&hours==0&&minute==0&&second==0 {
+                            self.timer?.cancel();
+                        }
+                        var hourseString = "";
+                        if hours>9 {
+                            hourseString = "0\(hours)";
+                        }else{
+                            hourseString = "\(hours)";
+                        }
+                        var minString = "";
+                        if minute>9 {
+                            minString = "0\(minute)";
+                        }else{
+                            minString = "\(minute)";
+                        }
+                        var sString = "";
+                        if second>9 {
+                            sString = "0\(second)";
+                        }else{
+                            sString = "\(second)";
+                        }
+                    block("\(day)",hourseString,minString,sString);
                     }
                 }
             })
@@ -56,7 +77,7 @@ open class CountDown: NSObject {
     /**
      使用时间戳来
      */
-    open func countDownWithStratTimeStamp(startTimeStamp:Int,endTimeStamp:Int, block:@escaping (_ day:NSInteger,_ hour:NSInteger,_ minute:NSInteger,_ second:NSInteger)->Void)->Void{
+    open func countDownWithStratTimeStamp(startTimeStamp:Int,endTimeStamp:Int, block:@escaping (_ day:String,_ hour:String,_ minute:String,_ second:String)->Void)->Void{
         
         var timeInval = endTimeStamp - startTimeStamp;
         timer = DispatchSource.makeTimerSource();
@@ -65,7 +86,7 @@ open class CountDown: NSObject {
             if timeInval<0{
                 self.timer?.cancel();
                 DispatchQueue.main.async {
-                    block(0,0,0,0);
+                    block("0","0","0","0");
                 }
             }else{
                 timeInval = timeInval-1;
@@ -75,7 +96,28 @@ open class CountDown: NSObject {
                 let minute = (inv-day*24*3600-hours*3600)/60;
                 let second = Int(inv)-Int(day*24*3600)-Int(hours*3600)-Int(minute*60)
                 DispatchQueue.main.async {
-                    block(Int(day),Int(hours),NSInteger(minute),NSInteger(second));
+                    if day==0&&hours==0&&minute==0&&second==0 {
+                        self.timer?.cancel();
+                    }
+                    var hourseString = "";
+                    if hours>9 {
+                        hourseString = "0\(hours)";
+                    }else{
+                        hourseString = "\(hours)";
+                    }
+                    var minString = "";
+                    if minute>9 {
+                        minString = "0\(minute)";
+                    }else{
+                        minString = "\(minute)";
+                    }
+                    var sString = "";
+                    if second>9 {
+                        sString = "0\(second)";
+                    }else{
+                        sString = "\(second)";
+                    }
+                    block("\(day)",hourseString,minString,sString);
                 }
             }
         })
