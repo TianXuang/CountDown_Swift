@@ -8,13 +8,28 @@
 
 import UIKit
 import SnapKit
+///导航栏类型
+enum TTNavigationType {
+    ///只展示标题
+    case TTNavigation_onlyTitle
+    ///展示标题和左侧按钮
+    case TTNavigation_onlyLeft
+    ///展示标题和右侧按钮
+    case TTNavigation_onlyRight
+    ///左右两侧都展示
+    case TTNavigation_leftRight
+}
+
+struct TTNavigationConfig {
+   static var name:String = "222";
+}
 class TTNavigationView: UIView {
     
-    open var letfImageString:String?;
+    open var letfImageString:Any?;
     
     open var titleString:String?
     
-    open var rightString:String?
+    open var rightString:Any?
     
     /**左侧按钮*/
     let leftBtn:UIButton = {
@@ -48,8 +63,12 @@ class TTNavigationView: UIView {
 //        self.letfImageString = "";
         super.init(frame: frame);
     }
-    //便利初始化方法
-    convenience init(frame:CGRect,leftImage:String,title:String) {
+    ///便利初始化方法
+    ///
+    /// - Parameter frame:位置
+    /// - Parameter leftImage:图片名称
+    /// - Returns: 对象
+    convenience init(frame:CGRect,leftImageOrString:Any,title:String) {
         self.init(frame:frame);
         self.titleString = title;
         creatUI()
@@ -63,7 +82,7 @@ class TTNavigationView: UIView {
         self.titleLabel.text = self.titleString;
         self.titleLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self);
-            make.top.equalTo(UIApplication.shared.statusBarFrame.height);
+            make.centerY.equalTo(self).offset(UIApplication.shared.statusBarFrame.height/2);
         };
         
         self.addSubview(self.leftBtn);
