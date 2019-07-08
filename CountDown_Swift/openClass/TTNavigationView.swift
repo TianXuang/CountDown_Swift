@@ -9,9 +9,9 @@
 import UIKit
 import SnapKit
 ///导航栏类型
-enum TTNavigationType {
+enum TTNavigationType:Int {
     ///只展示标题
-    case TTNavigation_onlyTitle
+    case TTNavigation_onlyTitle = 0
     ///展示标题和左侧按钮
     case TTNavigation_onlyLeft
     ///展示标题和右侧按钮
@@ -21,15 +21,20 @@ enum TTNavigationType {
 }
 
 struct TTNavigationConfig {
-   static var name:String = "222";
+    ///标题文字
+    var title:String?
+    ///左侧图片名称 目前支持图片
+    var leftImage:String
+    ///右侧名称 可以为数组、图片、文字
+    var rightAny:Any?
 }
 class TTNavigationView: UIView {
     
-    open var letfImageString:Any?;
+    open var letfImageString:String?;
     
     open var titleString:String?
     
-    open var rightString:Any?
+    open var rightAny:Any?
     
     /**左侧按钮*/
     let leftBtn:UIButton = {
@@ -60,7 +65,6 @@ class TTNavigationView: UIView {
     }();
     //默认初始化方法
     override init(frame: CGRect) {
-//        self.letfImageString = "";
         super.init(frame: frame);
     }
     ///便利初始化方法
@@ -68,9 +72,11 @@ class TTNavigationView: UIView {
     /// - Parameter frame:位置
     /// - Parameter leftImage:图片名称
     /// - Returns: 对象
-    convenience init(frame:CGRect,leftImageOrString:Any,title:String) {
+    convenience init(frame:CGRect,leftString:String,title:String,rightAny:Any) {
         self.init(frame:frame);
         self.titleString = title;
+        self.letfImageString = leftString;
+        self.rightAny = rightAny;
         creatUI()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -96,6 +102,13 @@ class TTNavigationView: UIView {
             make.centerY.equalTo(self.titleLabel);
             make.right.equalTo(self).offset(-15);
         };
+        
+    }
+    
+    static public func TTNavigationSettingConfig(Config:TTNavigationConfig,_ leftBtnClick:()->Void){
+        TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title ?? "", rightAny: Config.rightAny ?? []);
+
+        
         
     }
 }

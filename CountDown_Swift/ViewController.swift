@@ -39,10 +39,14 @@ class ViewController: UIViewController {
         self.count = count;
         
         
-        let ttnav = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftImageOrString: "",title: "首页");
-        ttnav.backgroundColor = UIColor.red
-        self.view.addSubview(ttnav);
+//        let ttnav = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftImageOrString: "",title: "首页");
+//        ttnav.backgroundColor = UIColor.red
+//        self.view.addSubview(ttnav);
         
+      let config = TTNavigationConfig.init(title: "biaoti", leftImage: "111", rightAny: [])
+        TTNavigationView.TTNavigationSettingConfig(Config: config) {
+            
+        };
         
         
         
