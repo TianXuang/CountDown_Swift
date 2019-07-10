@@ -43,7 +43,7 @@ class ViewController: UIViewController {
 //        ttnav.backgroundColor = UIColor.red
 //        self.view.addSubview(ttnav);
         
-        let config = TTNavigationConfig.init(bgView: self.view);
+        var config = TTNavigationConfig.init(bgView: self.view);
         config.title = "首页"
         config.leftImage = "111";
         TTNavigationView.TTNavigationSettingConfig(Config: config) {

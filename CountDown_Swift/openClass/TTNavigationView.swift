@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class TTNavigationConfig:NSObject {
+struct  TTNavigationConfig {
     ///标题文字
     var title:String?
     ///左侧图片名称 目前支持图片文字
@@ -19,24 +19,20 @@ class TTNavigationConfig:NSObject {
     ///navigation的父视图
     var superView:UIView
     ///背景颜色
-    var backgroundColor:UIColor?
+    var backgroundColor:UIColor = UIColor.white
     ///文字大小
-    var fontSize:CGFloat?
+    var fontSize:CGFloat = 17
     ///文字颜色
-    var textColor:UIColor?
-    override  init() {
-        self.superView = UIView.init()
-        super.init();
-    }
-    
-    convenience init(bgView:UIView) {
-        self.init();
+    var textColor:UIColor = UIColor.black
+   
+    init(bgView:UIView) {
         self.superView = bgView;
     }
 }
 class TTNavigationView: UIView {
     
     open var config:TTNavigationConfig?
+    
     
     /**左侧按钮*/
     let leftBtn:UIButton = {
@@ -124,10 +120,9 @@ class TTNavigationView: UIView {
         }
     }
     
-    @objc static public func TTNavigationSettingConfig(Config:TTNavigationConfig,_ leftBtnClick: ()->Void)->TTNavigationView{
+     static public func TTNavigationSettingConfig(Config:TTNavigationConfig,_ leftBtnClick: ()->Void)->TTNavigationView{
        let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightAny ?? [],config: Config);
         Config.superView.addSubview(view)
-        leftBtnClick()
         view.leftBtn.addTarget(view, action: #selector(view.awqe), for: .touchUpInside);
         return view;
     }
