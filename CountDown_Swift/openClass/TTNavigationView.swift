@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-struct  TTNavigationConfig {
+public struct  TTNavigationConfig {
     ///标题文字
     var title:String?
     ///左侧图片名称 目前支持图片文字
@@ -30,8 +30,8 @@ struct  TTNavigationConfig {
     }
 }
 typealias TTBtnClickBlock = ()->Void;
-class TTNavigationView: UIView {
-    open var config:TTNavigationConfig?
+open class TTNavigationView: UIView {
+     var config:TTNavigationConfig?
     
     var leftBlock:TTBtnClickBlock?
     
@@ -77,7 +77,7 @@ class TTNavigationView: UIView {
         self.config = config;
         creatUI()
     }
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -123,7 +123,7 @@ class TTNavigationView: UIView {
     }
     
     ///展示标题，左按钮，右按钮
-    static public func TTNavigationSettingConfig(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
+    static func TTNavigationSettingConfig(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
        let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightString,config: Config);
         view.leftBlock = leftBtnClick;
         view.rightBlock = rightBtnClick;
@@ -134,14 +134,14 @@ class TTNavigationView: UIView {
     }
     
     ///只展示标题
-    static public func TTNavigationSettingConfigWithTitle(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
+    static func TTNavigationSettingConfigWithTitle(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
         let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightString,config: Config);
         Config.superView.addSubview(view)
         return view;
     }
     
     ///只展示左侧按钮
-    static public func TTNavigationSettingConfigWithLeft(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
+    static func TTNavigationSettingConfigWithLeft(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
         let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightString,config: Config);
         Config.superView.addSubview(view)
         view.leftBlock = leftBtnClick;
