@@ -11,7 +11,7 @@ import UIKit
 open class TTCountDown: NSObject {
     var timer:DispatchSourceTimer?
     var dateFormatter:DateFormatter?
-    override init() {
+   public override init() {
         super.init();
         dateFormatter = DateFormatter.init();
         dateFormatter?.dateFormat = "YYYY-MM-dd HH:mm:ss";
@@ -101,21 +101,21 @@ open class TTCountDown: NSObject {
                     }
                     var hourseString = "";
                     if hours>9 {
-                        hourseString = "0\(hours)";
+                          hourseString = "\(hours)";
                     }else{
-                        hourseString = "\(hours)";
+                        hourseString = "0\(hours)";
                     }
                     var minString = "";
                     if minute>9 {
-                        minString = "0\(minute)";
-                    }else{
                         minString = "\(minute)";
+                    }else{
+                        minString = "0\(minute)";
                     }
                     var sString = "";
                     if second>9 {
-                        sString = "0\(second)";
-                    }else{
                         sString = "\(second)";
+                    }else{
+                        sString = "0\(second)";
                     }
                     block("\(day)",hourseString,minString,sString);
                 }

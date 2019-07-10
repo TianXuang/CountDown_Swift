@@ -25,7 +25,7 @@ public struct  TTNavigationConfig {
     ///文字颜色
     var textColor:UIColor = UIColor.black
    
-    init(bgView:UIView) {
+   public init(bgView:UIView) {
         self.superView = bgView;
     }
 }
@@ -134,14 +134,14 @@ open class TTNavigationView: UIView {
     }
     
     ///只展示标题
-    static func TTNavigationSettingConfigWithTitle(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
+    static func TTNavigationSettingConfigWithTitle(Config:TTNavigationConfig)->TTNavigationView{
         let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightString,config: Config);
         Config.superView.addSubview(view)
         return view;
     }
     
     ///只展示左侧按钮
-    static func TTNavigationSettingConfigWithLeft(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
+    static func TTNavigationSettingConfigWithLeft(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock)->TTNavigationView{
         let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightString,config: Config);
         Config.superView.addSubview(view)
         view.leftBlock = leftBtnClick;
