@@ -46,9 +46,12 @@ class ViewController: UIViewController {
         var config = TTNavigationConfig.init(bgView: self.view);
         config.title = "首页"
         config.leftImage = "111";
-        TTNavigationView.TTNavigationSettingConfig(Config: config) {
+        config.rightString = "222"
+        let _ = TTNavigationView.TTNavigationSettingConfig(Config: config, leftBtnClick: {
             
-        };
+        },rightBtnClick:{
+            
+        })
         
         
         

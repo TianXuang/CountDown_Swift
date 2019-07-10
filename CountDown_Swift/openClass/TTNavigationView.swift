@@ -15,7 +15,7 @@ struct  TTNavigationConfig {
     ///左侧图片名称 目前支持图片文字
     var leftImage:String?
     ///右侧名称 可以为数组、图片、文字
-    var rightAny:String?
+    var rightString:String = ""
     ///navigation的父视图
     var superView:UIView
     ///背景颜色
@@ -29,11 +29,13 @@ struct  TTNavigationConfig {
         self.superView = bgView;
     }
 }
+typealias TTBtnClickBlock = ()->Void;
 class TTNavigationView: UIView {
-    
     open var config:TTNavigationConfig?
     
+    var leftBlock:TTBtnClickBlock?
     
+    var rightBlock:TTBtnClickBlock?
     /**左侧按钮*/
     let leftBtn:UIButton = {
         let image:UIImage? = UIImage.init(named: "")
@@ -105,7 +107,7 @@ class TTNavigationView: UIView {
             }
         }
         
-        if let right = config?.rightAny {
+        if let right = config?.rightString {
             self.addSubview(self.rightBtn);
             self.rightBtn.snp.makeConstraints { (make) in
                 make.centerY.equalTo(self.titleLabel);
@@ -120,14 +122,38 @@ class TTNavigationView: UIView {
         }
     }
     
-     static public func TTNavigationSettingConfig(Config:TTNavigationConfig,_ leftBtnClick: ()->Void)->TTNavigationView{
-       let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightAny ?? [],config: Config);
+    ///展示标题，左按钮，右按钮
+    static public func TTNavigationSettingConfig(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
+       let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightString,config: Config);
+        view.leftBlock = leftBtnClick;
+        view.rightBlock = rightBtnClick;
         Config.superView.addSubview(view)
-        view.leftBtn.addTarget(view, action: #selector(view.awqe), for: .touchUpInside);
+        view.leftBtn.addTarget(view, action: #selector(view.leftBtnClick), for: .touchUpInside);
+        view.rightBtn.addTarget(view, action: #selector(view.rightClick), for: .touchUpInside);
         return view;
     }
     
-    @objc func awqe() {
-        
+    ///只展示标题
+    static public func TTNavigationSettingConfigWithTitle(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
+        let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightString,config: Config);
+        Config.superView.addSubview(view)
+        return view;
+    }
+    
+    ///只展示左侧按钮
+    static public func TTNavigationSettingConfigWithLeft(Config:TTNavigationConfig,leftBtnClick: @escaping TTBtnClickBlock, rightBtnClick:@escaping TTBtnClickBlock)->TTNavigationView{
+        let view = TTNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 88), leftString: Config.leftImage, title: Config.title, rightAny: Config.rightString,config: Config);
+        Config.superView.addSubview(view)
+        view.leftBlock = leftBtnClick;
+        view.leftBtn.addTarget(view, action: #selector(view.leftBtnClick), for: .touchUpInside);
+        return view;
+    }
+    
+    
+    @objc func leftBtnClick() {
+        self.leftBlock!()
+    }
+    @objc func rightClick() {
+        self.rightBlock!()
     }
 }
