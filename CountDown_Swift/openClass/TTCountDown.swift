@@ -96,6 +96,7 @@ open class TTCountDown: NSObject {
                 let minute = (inv-day*24*3600-hours*3600)/60;
                 let second = Int(inv)-Int(day*24*3600)-Int(hours*3600)-Int(minute*60)
                 DispatchQueue.main.async {
+                    
                     if day==0&&hours==0&&minute==0&&second==0 {
                         self.timer?.cancel();
                     }
